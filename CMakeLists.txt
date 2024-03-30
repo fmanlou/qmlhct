@@ -22,4 +22,4 @@ set(Qt_LIBS Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
 
 add_executable(qmlhtc main.cpp qml.qrc)
 
-target_link_libraries(qmlhtc PUBLIC htc absl_strings ${Qt_LIBS})
+target_link_libraries(qmlhtc PUBLIC htc ${Qt_LIBS})
