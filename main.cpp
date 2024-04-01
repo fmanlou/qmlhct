@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 
 #include "cpp/cam/hct.h"
+#include "cpp/scheme/scheme.h"
 #include "cpp/utils/utils.h"
 
 class Hct : public QObject {
@@ -43,8 +44,10 @@ class Hct : public QObject {
     }
   }
 
-  QString rgb() const {
-    material_color_utilities::Hct d{(double)hue, (double)chroma, (double)tone};
+  QString rgb() const { return hctToRgbString(hue, chroma, tone); }
+
+  static QString hctToRgbString(double h, double c, double t) {
+    material_color_utilities::Hct d{h, c, t};
     return "#" + QString::fromStdString(
                      material_color_utilities::HexFromArgb(d.ToInt()))
                      .remove(0, 2);
@@ -66,6 +69,10 @@ int main(int argc, char** argv) {
   QGuiApplication app(argc, argv);
 
   QQmlApplicationEngine engine;
+
+  const material_color_utilities::Scheme& scheme =
+      material_color_utilities::MaterialLightColorScheme(
+          material_color_utilities::ArgbFromRgb(0, 0x86, 0x73));
 
   qmlRegisterType<Hct>("Hct", 1, 0, "Hct");
 
