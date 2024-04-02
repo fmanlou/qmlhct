@@ -3,10 +3,10 @@ import QtQuick.Window 2.15
 
 Window {
     id: root
-    width: 640
-    height: 480
+    width: 1200
+    height: 800
     visible: true
-    title: qsTr("QmlHct")  
+    title: qsTr("QmlHct")
 
-    HctView {}
+    DynamicSchemeView {}
 }

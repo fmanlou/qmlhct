@@ -4,13 +4,14 @@ import QtQuick.Layouts 2.15
 import Hct 1.0
 
 ColumnLayout {
+    id: root
+
     anchors.top: parent.top
     anchors.topMargin: 100
     anchors.horizontalCenter: parent.horizontalCenter
     spacing: 16
 
-    Hct {
-        id: color 
+    property Hct color: Hct {
         h: 180
         c: 60
         t: 50     
@@ -26,10 +27,10 @@ ColumnLayout {
         }
         TextField {
             leftPadding: 5
-            text: color.h
+            text: root.color.h
             validator: IntValidator {bottom: 0; top: 360;}
             onTextChanged: {
-                color.h = parseInt(text);
+                root.color.h = parseInt(text);
             }
         }
         Slider {
@@ -37,9 +38,9 @@ ColumnLayout {
             from: 0
             to: 360
             stepSize: 1
-            value: color.h
+            value: root.color.h
             onValueChanged: {
-                color.h = value;
+                root.color.h = value;
             }
         }
     }
@@ -54,10 +55,10 @@ ColumnLayout {
         }
         TextField {
             leftPadding: 5
-            text: color.c
+            text: root.color.c
             validator: IntValidator {bottom: 0; top: 120;}
             onTextChanged: {
-                color.c = parseInt(text);
+                root.color.c = parseInt(text);
             }
         }
         Slider {
@@ -65,9 +66,9 @@ ColumnLayout {
             from: 0
             to: 120
             stepSize: 1
-            value: color.c 
+            value: root.color.c 
             onValueChanged: {
-                color.c = value;
+                root.color.c = value;
             }
         }
     }
@@ -82,10 +83,10 @@ ColumnLayout {
         }
         TextField {
             leftPadding: 5
-            text: color.t
+            text: root.color.t
             validator: IntValidator {bottom: 0; top: 100;}
             onTextChanged: {
-                color.t = parseInt(text);
+                root.color.t = parseInt(text);
             }
         }
         Slider {
@@ -93,9 +94,9 @@ ColumnLayout {
             from: 0
             to: 100
             stepSize: 1
-            value: color.t
+            value: root.color.t
             onValueChanged: {
-                color.t = value;
+                root.color.t = value;
             }
         }
     }
@@ -105,9 +106,9 @@ ColumnLayout {
         Layout.fillWidth: true
         height: 160
         
-        color: color.rgb
+        color: root.color.rgb
     }
     Text {
-        text: color.rgb
+        text: root.color.rgb
     }
 }
