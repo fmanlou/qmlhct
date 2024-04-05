@@ -1,1 +1,2 @@
 add_subdirectory(dynamicscheme)
+add_subdirectory(hcttorgb)

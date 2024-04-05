@@ -6,7 +6,7 @@ Window {
     width: 1200
     height: 800
     visible: true
-    title: qsTr("Dynamic Scheme")
+    title: qsTr("Hct To Rgb")
 
-    DynamicSchemeView {}
+    HctView {}
 }
