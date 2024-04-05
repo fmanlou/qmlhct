@@ -8,6 +8,8 @@ QString hctToRgbString(double h, double c, double t);
 
 QString argbToRgbString(material_color_utilities::Argb argb);
 
+class HctImpl;
+
 class Hct : public QObject {
   Q_OBJECT
 
@@ -18,6 +20,7 @@ class Hct : public QObject {
 
  public:
   Hct(QObject* parent = nullptr);
+  ~Hct();
 
   int h() const;
 
@@ -40,7 +43,5 @@ class Hct : public QObject {
   void rgbChanged();
 
  private:
-  int hue;
-  int chroma;
-  int tone;
+  HctImpl* impl;
 };
