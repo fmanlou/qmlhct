@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>HctView.qml</file>
         <file>DynamicSchemeView.qml</file>
         <file>Main.qml</file>
     </qresource>

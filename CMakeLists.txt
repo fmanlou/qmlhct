@@ -20,8 +20,6 @@ find_package(
 
 set(Qt_LIBS Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
 
-add_executable(qmlhtc main.cpp qml.qrc)
-
 add_subdirectory(src)
 
-target_link_libraries(qmlhtc PUBLIC ${Qt_LIBS} qmlmaterialcolorutilities)
+add_subdirectory(demo)
