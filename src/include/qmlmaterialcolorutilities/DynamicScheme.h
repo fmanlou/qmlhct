@@ -4,6 +4,8 @@
 
 #include "cpp/dynamiccolor/dynamic_scheme.h"
 
+class DynamicSchemeImpl;
+
 class DynamicScheme : public QObject {
   Q_OBJECT
 
@@ -112,6 +114,8 @@ class DynamicScheme : public QObject {
 
   DynamicScheme(QObject* parent = nullptr);
 
+  ~DynamicScheme();
+
   bool isDark() const;
 
   void setIsDark(bool b);
@@ -184,81 +188,5 @@ class DynamicScheme : public QObject {
   void changed();
 
  private:
-  void update();
-
-  void update(const QString& color, bool isDark, Style style);
-
-  void update(const material_color_utilities::DynamicScheme& dynamic_scheme);
-
- private:
-  QString m_baseColor;
-  bool m_isDark{true};
-  Style m_style;
-
-  QString m_backgroundColor;
-  QString m_onBackgroundColor;
-
-  QString m_primaryColor;
-  QString m_onPrimaryColor;
-
-  QString m_secondaryColor;
-  QString m_onSecondaryColor;
-
-  QString m_tertiaryColor;
-  QString m_onTeritaryColor;
-
-  QString m_errorColor;
-  QString m_onErrorColor;
-
-  QString m_primaryContainerColor;
-  QString m_onPrimaryContainerColor;
-
-  QString m_secondaryContainerColor;
-  QString m_onSecondaryContainerColor;
-
-  QString m_tertiaryContainerColor;
-  QString m_onTertiaryContainerColor;
-
-  QString m_errorContainerColor;
-  QString m_onErrorContainerColor;
-
-  QString m_primaryFixedColor;
-  QString m_primaryFixedDimColor;
-
-  QString m_onPrimaryFixedColor;
-  QString m_onPrimaryFixedVariantColor;
-
-  QString m_secondaryFixedColor;
-  QString m_secondaryFixedDimColor;
-
-  QString m_onSecondaryFixedColor;
-  QString m_onSecondaryFixedVariantColor;
-
-  QString m_tertiaryFixedColor;
-  QString m_tertiaryFixedDimColor;
-
-  QString m_onTertiaryFixedColor;
-  QString m_onTertiaryFixedVariantColor;
-
-  QString m_surfaceDimColor;
-  QString m_surfaceColor;
-  QString m_surfaceBrightColor;
-
-  QString m_surfaceContainerLowestColor;
-  QString m_surfaceContainerLowColor;
-  QString m_surfaceContainerColor;
-  QString m_surfaceContainerHighColor;
-  QString m_surfaceContainerHighestColor;
-
-  QString m_onSurfaceColor;
-  QString m_onSurfaceVariantColor;
-  QString m_outlineColor;
-  QString m_outlineVariantColor;
-
-  QString m_inverseSurfaceColor;
-  QString m_inverseOnSurfaceColor;
-  QString m_inversePrimaryColor;
-
-  QString m_scrimColor;
-  QString m_shadowColor;
+  DynamicSchemeImpl* impl;
 };

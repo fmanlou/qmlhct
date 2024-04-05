@@ -1,347 +1,167 @@
 #include "qmlmaterialcolorutilities/DynamicScheme.h"
 
-#include <QColor>
+#include "DynamicSchemeImpl.h"
 
-#include "cpp/scheme/scheme_content.h"
-#include "cpp/scheme/scheme_expressive.h"
-#include "cpp/scheme/scheme_fidelity.h"
-#include "cpp/scheme/scheme_fruit_salad.h"
-#include "cpp/scheme/scheme_monochrome.h"
-#include "cpp/scheme/scheme_neutral.h"
-#include "cpp/scheme/scheme_rainbow.h"
-#include "cpp/scheme/scheme_tonal_spot.h"
-#include "cpp/scheme/scheme_vibrant.h"
-#include "qmlmaterialcolorutilities/Hct.h"
-
-typedef std::function<std::unique_ptr<material_color_utilities::DynamicScheme>(
-    const material_color_utilities::Hct& hct, bool light)>
-    DynamicSchemeGenerator;
-
-const DynamicSchemeGenerator VibrantSchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeVibrant(hct, light));
-    };
-
-const DynamicSchemeGenerator TonalSpotSchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeTonalSpot(hct, light));
-    };
-
-const DynamicSchemeGenerator MonochromeSchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeMonochrome(hct, light));
-    };
-
-const DynamicSchemeGenerator ContentSchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeContent(hct, light));
-    };
-
-const DynamicSchemeGenerator ExpressiveSchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeExpressive(hct, light));
-    };
-
-const DynamicSchemeGenerator FidelitySchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeFidelity(hct, light));
-    };
-
-const DynamicSchemeGenerator FruitSaladSchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeFruitSalad(hct, light));
-    };
-
-const DynamicSchemeGenerator NeutralSaladSchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeNeutral(hct, light));
-    };
-
-const DynamicSchemeGenerator RainbowSaladSchemeGenerator =
-    [](const material_color_utilities::Hct& hct, bool light) {
-      return std::unique_ptr<material_color_utilities::DynamicScheme>(
-          new material_color_utilities::SchemeRainbow(hct, light));
-    };
-
-DynamicSchemeGenerator dynamicSchemeStyleFunction(DynamicScheme::Style style) {
-  switch (style) {
-    case DynamicScheme::Vibrant:
-      return VibrantSchemeGenerator;
-    case DynamicScheme::TonalSpot:
-      return TonalSpotSchemeGenerator;
-    case DynamicScheme::Monochrome:
-      return MonochromeSchemeGenerator;
-    case DynamicScheme::Content:
-      return ContentSchemeGenerator;
-    case DynamicScheme::Expressive:
-      return ExpressiveSchemeGenerator;
-    case DynamicScheme::Fidelity:
-      return FidelitySchemeGenerator;
-    case DynamicScheme::FruitSalad:
-      return FruitSaladSchemeGenerator;
-    case DynamicScheme::Neutral:
-      return NeutralSaladSchemeGenerator;
-    case DynamicScheme::Rainbow:
-      return RainbowSaladSchemeGenerator;
-  }
-
-  return VibrantSchemeGenerator;
+DynamicScheme::DynamicScheme(QObject* parent) : QObject(parent) {
+  impl = new DynamicSchemeImpl();
 }
 
-DynamicScheme::DynamicScheme(QObject* parent) : QObject(parent) {}
+DynamicScheme::~DynamicScheme() { delete impl; }
 
-bool DynamicScheme::isDark() const { return m_isDark; }
+bool DynamicScheme::isDark() const { return impl->d.isDark; }
 
 void DynamicScheme::setIsDark(bool b) {
-  if (m_isDark != b) {
-    m_isDark = b;
-    update();
+  if (impl->d.isDark != b) {
+    impl->d.isDark = b;
+    impl->update();
     emit changed();
   }
 }
 
-DynamicScheme::Style DynamicScheme::style() const { return m_style; }
+DynamicScheme::Style DynamicScheme::style() const { return impl->d.style; }
 
 void DynamicScheme::setStyle(Style s) {
-  if (m_style != s) {
-    m_style = s;
-    update();
+  if (impl->d.style != s) {
+    impl->d.style = s;
+    impl->update();
     emit changed();
   }
 }
 
-QString DynamicScheme::baseColor() const { return m_baseColor; }
+QString DynamicScheme::baseColor() const { return impl->d.baseColor; }
 
 void DynamicScheme::setBaseColor(const QString& color) {
-  if (m_baseColor != color) {
-    m_baseColor = color;
-    update();
+  if (impl->d.baseColor != color) {
+    impl->d.baseColor = color;
+    impl->update();
     emit changed();
   }
 }
 
-QString DynamicScheme::backgroundColor() const { return m_backgroundColor; }
-QString DynamicScheme::onBackgroundColor() const { return m_onBackgroundColor; }
-QString DynamicScheme::primaryColor() const { return m_primaryColor; }
-QString DynamicScheme::onPrimaryColor() const { return m_onPrimaryColor; }
-QString DynamicScheme::secondaryColor() const { return m_secondaryColor; }
-QString DynamicScheme::onSecondaryColor() const { return m_onSecondaryColor; }
-QString DynamicScheme::tertiaryColor() const { return m_tertiaryColor; }
-QString DynamicScheme::onTeritaryColor() const { return m_onTeritaryColor; }
-QString DynamicScheme::errorColor() const { return m_errorColor; }
-QString DynamicScheme::onErrorColor() const { return m_onErrorColor; }
+QString DynamicScheme::backgroundColor() const {
+  return impl->d.backgroundColor;
+}
+QString DynamicScheme::onBackgroundColor() const {
+  return impl->d.onBackgroundColor;
+}
+QString DynamicScheme::primaryColor() const { return impl->d.primaryColor; }
+QString DynamicScheme::onPrimaryColor() const { return impl->d.onPrimaryColor; }
+QString DynamicScheme::secondaryColor() const { return impl->d.secondaryColor; }
+QString DynamicScheme::onSecondaryColor() const {
+  return impl->d.onSecondaryColor;
+}
+QString DynamicScheme::tertiaryColor() const { return impl->d.tertiaryColor; }
+QString DynamicScheme::onTeritaryColor() const {
+  return impl->d.onTeritaryColor;
+}
+QString DynamicScheme::errorColor() const { return impl->d.errorColor; }
+QString DynamicScheme::onErrorColor() const { return impl->d.onErrorColor; }
 QString DynamicScheme::primaryContainerColor() const {
-  return m_primaryContainerColor;
+  return impl->d.primaryContainerColor;
 }
 QString DynamicScheme::onPrimaryContainerColor() const {
-  return m_onPrimaryContainerColor;
+  return impl->d.onPrimaryContainerColor;
 }
 QString DynamicScheme::secondaryContainerColor() const {
-  return m_secondaryContainerColor;
+  return impl->d.secondaryContainerColor;
 }
 QString DynamicScheme::onSecondaryContainerColor() const {
-  return m_onSecondaryContainerColor;
+  return impl->d.onSecondaryContainerColor;
 }
 QString DynamicScheme::tertiaryContainerColor() const {
-  return m_tertiaryContainerColor;
+  return impl->d.tertiaryContainerColor;
 }
 QString DynamicScheme::onTertiaryContainerColor() const {
-  return m_onTertiaryContainerColor;
+  return impl->d.onTertiaryContainerColor;
 }
 QString DynamicScheme::errorContainerColor() const {
-  return m_errorContainerColor;
+  return impl->d.errorContainerColor;
 }
 QString DynamicScheme::onErrorContainerColor() const {
-  return m_onErrorContainerColor;
+  return impl->d.onErrorContainerColor;
 }
 
-QString DynamicScheme::primaryFixedColor() const { return m_primaryFixedColor; }
+QString DynamicScheme::primaryFixedColor() const {
+  return impl->d.primaryFixedColor;
+}
 QString DynamicScheme::primaryFixedDimColor() const {
-  return m_primaryFixedDimColor;
+  return impl->d.primaryFixedDimColor;
 }
 QString DynamicScheme::onPrimaryFixedColor() const {
-  return m_onPrimaryFixedColor;
+  return impl->d.onPrimaryFixedColor;
 }
 QString DynamicScheme::onPrimaryFixedVariantColor() const {
-  return m_onPrimaryFixedVariantColor;
+  return impl->d.onPrimaryFixedVariantColor;
 }
 
 QString DynamicScheme::secondaryFixedColor() const {
-  return m_secondaryFixedColor;
+  return impl->d.secondaryFixedColor;
 }
 QString DynamicScheme::secondaryFixedDimColor() const {
-  return m_secondaryFixedDimColor;
+  return impl->d.secondaryFixedDimColor;
 }
 QString DynamicScheme::onSecondaryFixedColor() const {
-  return m_onSecondaryFixedColor;
+  return impl->d.onSecondaryFixedColor;
 }
 QString DynamicScheme::onSecondaryFixedVariantColor() const {
-  return m_onSecondaryFixedVariantColor;
+  return impl->d.onSecondaryFixedVariantColor;
 }
 
 QString DynamicScheme::tertiaryFixedColor() const {
-  return m_tertiaryFixedColor;
+  return impl->d.tertiaryFixedColor;
 }
 QString DynamicScheme::tertiaryFixedDimColor() const {
-  return m_tertiaryFixedDimColor;
+  return impl->d.tertiaryFixedDimColor;
 }
 QString DynamicScheme::onTertiaryFixedColor() const {
-  return m_onTertiaryFixedColor;
+  return impl->d.onTertiaryFixedColor;
 }
 QString DynamicScheme::onTertiaryFixedVariantColor() const {
-  return m_onTertiaryFixedVariantColor;
+  return impl->d.onTertiaryFixedVariantColor;
 }
 
-QString DynamicScheme::surfaceDimColor() const { return m_surfaceDimColor; }
-QString DynamicScheme::surfaceColor() const { return m_surfaceColor; }
+QString DynamicScheme::surfaceDimColor() const {
+  return impl->d.surfaceDimColor;
+}
+QString DynamicScheme::surfaceColor() const { return impl->d.surfaceColor; }
 QString DynamicScheme::surfaceBrightColor() const {
-  return m_surfaceBrightColor;
+  return impl->d.surfaceBrightColor;
 }
 
 QString DynamicScheme::surfaceContainerLowestColor() const {
-  return m_surfaceContainerLowestColor;
+  return impl->d.surfaceContainerLowestColor;
 }
 QString DynamicScheme::surfaceContainerLowColor() const {
-  return m_surfaceContainerLowColor;
+  return impl->d.surfaceContainerLowColor;
 }
 QString DynamicScheme::surfaceContainerColor() const {
-  return m_surfaceContainerColor;
+  return impl->d.surfaceContainerColor;
 }
 QString DynamicScheme::surfaceContainerHighColor() const {
-  return m_surfaceContainerHighColor;
+  return impl->d.surfaceContainerHighColor;
 }
 QString DynamicScheme::surfaceContainerHighestColor() const {
-  return m_surfaceContainerHighestColor;
+  return impl->d.surfaceContainerHighestColor;
 }
 
-QString DynamicScheme::onSurfaceColor() const { return m_onSurfaceColor; }
+QString DynamicScheme::onSurfaceColor() const { return impl->d.onSurfaceColor; }
 QString DynamicScheme::onSurfaceVariantColor() const {
-  return m_onSurfaceVariantColor;
+  return impl->d.onSurfaceVariantColor;
 }
-QString DynamicScheme::outlineColor() const { return m_outlineColor; }
+QString DynamicScheme::outlineColor() const { return impl->d.outlineColor; }
 QString DynamicScheme::outlineVariantColor() const {
-  return m_outlineVariantColor;
+  return impl->d.outlineVariantColor;
 }
 
 QString DynamicScheme::inverseSurfaceColor() const {
-  return m_inverseSurfaceColor;
+  return impl->d.inverseSurfaceColor;
 }
 QString DynamicScheme::inverseOnSurfaceColor() const {
-  return m_inverseOnSurfaceColor;
+  return impl->d.inverseOnSurfaceColor;
 }
 QString DynamicScheme::inversePrimaryColor() const {
-  return m_inversePrimaryColor;
+  return impl->d.inversePrimaryColor;
 }
 
-QString DynamicScheme::scrimColor() const { return m_scrimColor; }
-QString DynamicScheme::shadowColor() const { return m_shadowColor; }
-
-void DynamicScheme::update() { update(m_baseColor, m_isDark, m_style); }
-
-void DynamicScheme::update(const QString& color, bool isDark, Style style) {
-  QColor col(color);
-  const auto& hct =
-      material_color_utilities::Hct(material_color_utilities::ArgbFromRgb(
-          col.red(), col.green(), col.blue()));
-  const auto& generator = dynamicSchemeStyleFunction(style);
-  const auto& dynamic_scheme = generator(hct, isDark);
-  update(*dynamic_scheme);
-}
-
-void DynamicScheme::update(
-    const material_color_utilities::DynamicScheme& dynamic_scheme) {
-  m_backgroundColor = argbToRgbString(dynamic_scheme.GetBackground());
-  m_onBackgroundColor = argbToRgbString(dynamic_scheme.GetOnBackground());
-
-  m_primaryColor = argbToRgbString(dynamic_scheme.GetPrimary());
-  m_onPrimaryColor = argbToRgbString(dynamic_scheme.GetOnPrimary());
-
-  m_secondaryColor = argbToRgbString(dynamic_scheme.GetSecondary());
-  m_onSecondaryColor = argbToRgbString(dynamic_scheme.GetOnSecondary());
-
-  m_tertiaryColor = argbToRgbString(dynamic_scheme.GetTertiary());
-  m_onTeritaryColor = argbToRgbString(dynamic_scheme.GetOnTertiary());
-
-  m_errorColor = argbToRgbString(dynamic_scheme.GetError());
-  m_onErrorColor = argbToRgbString(dynamic_scheme.GetOnError());
-
-  m_primaryContainerColor =
-      argbToRgbString(dynamic_scheme.GetPrimaryContainer());
-  m_onPrimaryContainerColor =
-      argbToRgbString(dynamic_scheme.GetOnPrimaryContainer());
-
-  m_secondaryContainerColor =
-      argbToRgbString(dynamic_scheme.GetSecondaryContainer());
-  m_onSecondaryContainerColor =
-      argbToRgbString(dynamic_scheme.GetOnSecondaryContainer());
-
-  m_tertiaryContainerColor =
-      argbToRgbString(dynamic_scheme.GetTertiaryContainer());
-  m_onTertiaryContainerColor =
-      argbToRgbString(dynamic_scheme.GetOnTertiaryContainer());
-
-  m_errorContainerColor = argbToRgbString(dynamic_scheme.GetErrorContainer());
-  m_onErrorContainerColor =
-      argbToRgbString(dynamic_scheme.GetOnErrorContainer());
-
-  m_primaryFixedColor = argbToRgbString(dynamic_scheme.GetPrimaryFixed());
-  m_primaryFixedDimColor = argbToRgbString(dynamic_scheme.GetPrimaryFixedDim());
-
-  m_onPrimaryFixedColor = argbToRgbString(dynamic_scheme.GetOnPrimaryFixed());
-  m_onPrimaryFixedVariantColor =
-      argbToRgbString(dynamic_scheme.GetOnPrimaryFixedVariant());
-
-  m_secondaryFixedColor = argbToRgbString(dynamic_scheme.GetSecondaryFixed());
-  m_secondaryFixedDimColor =
-      argbToRgbString(dynamic_scheme.GetSecondaryFixedDim());
-
-  m_onSecondaryFixedColor =
-      argbToRgbString(dynamic_scheme.GetOnSecondaryFixed());
-  m_onSecondaryFixedVariantColor =
-      argbToRgbString(dynamic_scheme.GetOnSecondaryFixedVariant());
-
-  m_tertiaryFixedColor = argbToRgbString(dynamic_scheme.GetTertiaryFixed());
-  m_tertiaryFixedDimColor =
-      argbToRgbString(dynamic_scheme.GetTertiaryFixedDim());
-
-  m_onTertiaryFixedColor = argbToRgbString(dynamic_scheme.GetOnTertiaryFixed());
-  m_onTertiaryFixedVariantColor =
-      argbToRgbString(dynamic_scheme.GetOnTertiaryFixedVariant());
-
-  m_surfaceDimColor = argbToRgbString(dynamic_scheme.GetSurfaceDim());
-  m_surfaceColor = argbToRgbString(dynamic_scheme.GetSurface());
-  m_surfaceBrightColor = argbToRgbString(dynamic_scheme.GetSurfaceBright());
-
-  m_surfaceContainerLowestColor =
-      argbToRgbString(dynamic_scheme.GetSurfaceContainerLowest());
-  m_surfaceContainerLowColor =
-      argbToRgbString(dynamic_scheme.GetSurfaceContainerLow());
-  m_surfaceContainerColor =
-      argbToRgbString(dynamic_scheme.GetSurfaceContainer());
-  m_surfaceContainerHighColor =
-      argbToRgbString(dynamic_scheme.GetSurfaceContainerHigh());
-  m_surfaceContainerHighestColor =
-      argbToRgbString(dynamic_scheme.GetSurfaceContainerHighest());
-
-  m_onSurfaceColor = argbToRgbString(dynamic_scheme.GetOnSurface());
-  m_onSurfaceVariantColor =
-      argbToRgbString(dynamic_scheme.GetOnSurfaceVariant());
-  m_outlineColor = argbToRgbString(dynamic_scheme.GetOutline());
-  m_outlineVariantColor = argbToRgbString(dynamic_scheme.GetOutlineVariant());
-
-  m_inverseSurfaceColor = argbToRgbString(dynamic_scheme.GetInverseSurface());
-  m_inverseOnSurfaceColor =
-      argbToRgbString(dynamic_scheme.GetInverseOnSurface());
-  m_inversePrimaryColor = argbToRgbString(dynamic_scheme.GetInversePrimary());
-
-  m_scrimColor = argbToRgbString(dynamic_scheme.GetScrim());
-  m_shadowColor = argbToRgbString(dynamic_scheme.GetShadow());
-}
+QString DynamicScheme::scrimColor() const { return impl->d.scrimColor; }
+QString DynamicScheme::shadowColor() const { return impl->d.shadowColor; }
