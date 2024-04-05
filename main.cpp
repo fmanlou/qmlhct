@@ -3,7 +3,6 @@
 #include <QQmlApplicationEngine>
 #include <memory>
 
-#include "cpp/cam/hct.h"
 #include "cpp/scheme/scheme_content.h"
 #include "cpp/scheme/scheme_expressive.h"
 #include "cpp/scheme/scheme_fidelity.h"
@@ -13,71 +12,7 @@
 #include "cpp/scheme/scheme_rainbow.h"
 #include "cpp/scheme/scheme_tonal_spot.h"
 #include "cpp/scheme/scheme_vibrant.h"
-#include "cpp/utils/utils.h"
-
-class Hct : public QObject {
-  Q_OBJECT
-
-  Q_PROPERTY(int h READ h WRITE setH NOTIFY hChanged)
-  Q_PROPERTY(int c READ c WRITE setC NOTIFY cChanged)
-  Q_PROPERTY(int t READ t WRITE setT NOTIFY tChanged)
-  Q_PROPERTY(QString rgb READ rgb NOTIFY rgbChanged)
-
- public:
-  Hct(QObject* parent = nullptr) : QObject(parent) {
-    connect(this, &Hct::hChanged, this, &Hct::rgbChanged);
-    connect(this, &Hct::cChanged, this, &Hct::rgbChanged);
-    connect(this, &Hct::tChanged, this, &Hct::rgbChanged);
-  }
-
-  int h() const { return hue; }
-  void setH(int h) {
-    if (h != hue) {
-      hue = h;
-      emit hChanged();
-    }
-  }
-
-  int c() const { return chroma; }
-  void setC(int c) {
-    if (c != chroma) {
-      chroma = c;
-      emit cChanged();
-    }
-  }
-
-  int t() const { return tone; }
-  void setT(int t) {
-    if (t != tone) {
-      tone = t;
-      emit tChanged();
-    }
-  }
-
-  QString rgb() const { return hctToRgbString(hue, chroma, tone); }
-
-  static QString hctToRgbString(double h, double c, double t) {
-    material_color_utilities::Hct d{h, c, t};
-    return argbToRgbString(d.ToInt());
-  }
-
-  static QString argbToRgbString(material_color_utilities::Argb argb) {
-    return "#" +
-           QString::fromStdString(material_color_utilities::HexFromArgb(argb))
-               .remove(0, 2);
-  }
-
- signals:
-  void hChanged();
-  void cChanged();
-  void tChanged();
-  void rgbChanged();
-
- private:
-  int hue;
-  int chroma;
-  int tone;
-};
+#include "qmlmaterialcolorutilities/Hct.h"
 
 typedef std::function<std::unique_ptr<material_color_utilities::DynamicScheme>(
     const material_color_utilities::Hct& hct, bool light)>

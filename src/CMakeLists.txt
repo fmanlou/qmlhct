@@ -1,0 +1,15 @@
+set(TARGET qmlmaterialcolorutilities)
+
+set(TARGET_PUBLIC_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
+
+file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+
+file(GLOB_RECURSE INTERNAL_HEADERS ${PROJECT_SOURCE_DIR}/src/*.h)
+
+file(GLOB_RECURSE PUBLIC_HEADERS ${PROJECT_SOURCE_DIR}/include/*.h)
+
+add_library(${TARGET} ${SOURCES} ${PUBLIC_HEADERS} ${INTERNAL_HEADERS})
+
+target_link_libraries(${TARGET} PUBLIC htc ${Qt_LIBS})
+
+target_include_directories(${TARGET} PUBLIC ${TARGET_PUBLIC_INCLUDE_DIR})

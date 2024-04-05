@@ -22,4 +22,6 @@ set(Qt_LIBS Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
 
 add_executable(qmlhtc main.cpp qml.qrc)
 
-target_link_libraries(qmlhtc PUBLIC htc ${Qt_LIBS})
+add_subdirectory(src)
+
+target_link_libraries(qmlhtc PUBLIC ${Qt_LIBS} qmlmaterialcolorutilities)
