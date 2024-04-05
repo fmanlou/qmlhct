@@ -1,4 +1,5 @@
-set(MATERIAL_COLOR_UTILITIES_DIR ${CMAKE_SOURCE_DIR}/material-color-utilities)
+set(MATERIAL_COLOR_UTILITIES_DIR
+    ${CMAKE_SOURCE_DIR}/materialcolorutilities/material-color-utilities)
 
 set(MATERIAL_COLOR_UTILITIES_CPP_DIR ${MATERIAL_COLOR_UTILITIES_DIR}/cpp)
 
