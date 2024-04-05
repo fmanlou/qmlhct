@@ -2,16 +2,15 @@
 
 #include <QObject>
 
-#include "cpp/dynamiccolor/dynamic_scheme.h"
-
 class DynamicSchemeImpl;
 
 class DynamicScheme : public QObject {
   Q_OBJECT
 
-  Q_PROPERTY(bool isDark READ isDark WRITE setIsDark NOTIFY changed)
-  Q_PROPERTY(Style style READ style WRITE setStyle NOTIFY changed)
-  Q_PROPERTY(QString baseColor READ baseColor WRITE setBaseColor NOTIFY changed)
+  Q_PROPERTY(bool isDark READ isDark WRITE setIsDark NOTIFY isDarkChanged)
+  Q_PROPERTY(Style style READ style WRITE setStyle NOTIFY styleChanged)
+  Q_PROPERTY(QString baseColor READ baseColor WRITE setBaseColor NOTIFY
+                 baseColorChanged)
 
   Q_PROPERTY(QString backgroundColor READ backgroundColor NOTIFY changed)
   Q_PROPERTY(QString onBackgroundColor READ onBackgroundColor NOTIFY changed)
@@ -185,6 +184,9 @@ class DynamicScheme : public QObject {
   QString shadowColor() const;
 
  signals:
+  void isDarkChanged();
+  void styleChanged();
+  void baseColorChanged();
   void changed();
 
  private:

@@ -2,6 +2,7 @@
 
 #include <QString>
 
+#include "cpp/dynamiccolor/dynamic_scheme.h"
 #include "qmlmaterialcolorutilities/DynamicScheme.h"
 
 struct DynamicSchemeData {

@@ -14,6 +14,7 @@ void DynamicScheme::setIsDark(bool b) {
   if (impl->d.isDark != b) {
     impl->d.isDark = b;
     impl->update();
+    emit isDarkChanged();
     emit changed();
   }
 }
@@ -24,6 +25,7 @@ void DynamicScheme::setStyle(Style s) {
   if (impl->d.style != s) {
     impl->d.style = s;
     impl->update();
+    emit styleChanged();
     emit changed();
   }
 }
@@ -34,6 +36,7 @@ void DynamicScheme::setBaseColor(const QString& color) {
   if (impl->d.baseColor != color) {
     impl->d.baseColor = color;
     impl->update();
+    emit baseColorChanged();
     emit changed();
   }
 }
