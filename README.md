@@ -1,4 +1,8 @@
-# Qml Hct color
+# Qml Material Color Utilities
+
+## Demo
+
+![image info](./demo/dynamicscheme/demo.gif)
 
 ## 参考文档
 
