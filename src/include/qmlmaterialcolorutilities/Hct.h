@@ -4,6 +4,10 @@
 
 #include "cpp/utils/utils.h"
 
+QString hctToRgbString(double h, double c, double t);
+
+QString argbToRgbString(material_color_utilities::Argb argb);
+
 class Hct : public QObject {
   Q_OBJECT
 
@@ -28,10 +32,6 @@ class Hct : public QObject {
   void setT(int t);
 
   QString rgb() const;
-
-  static QString hctToRgbString(double h, double c, double t);
-
-  static QString argbToRgbString(material_color_utilities::Argb argb);
 
  signals:
   void hChanged();

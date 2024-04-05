@@ -2,6 +2,17 @@
 
 #include "cpp/cam/hct.h"
 
+QString hctToRgbString(double h, double c, double t) {
+  material_color_utilities::Hct d{h, c, t};
+  return argbToRgbString(d.ToInt());
+}
+
+QString argbToRgbString(material_color_utilities::Argb argb) {
+  return "#" +
+         QString::fromStdString(material_color_utilities::HexFromArgb(argb))
+             .remove(0, 2);
+}
+
 Hct::Hct(QObject* parent) : QObject(parent) {
   connect(this, &Hct::hChanged, this, &Hct::rgbChanged);
   connect(this, &Hct::cChanged, this, &Hct::rgbChanged);
@@ -36,14 +47,3 @@ void Hct::setT(int t) {
 }
 
 QString Hct::rgb() const { return hctToRgbString(hue, chroma, tone); }
-
-QString Hct::hctToRgbString(double h, double c, double t) {
-  material_color_utilities::Hct d{h, c, t};
-  return argbToRgbString(d.ToInt());
-}
-
-QString Hct::argbToRgbString(material_color_utilities::Argb argb) {
-  return "#" +
-         QString::fromStdString(material_color_utilities::HexFromArgb(argb))
-             .remove(0, 2);
-}
