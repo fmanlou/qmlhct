@@ -24,4 +24,10 @@ set(Qt_LIBS Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
 
 add_subdirectory(src)
 
-add_subdirectory(demo)
+option(QMLMATERIALSTYLE_BUILD_DEMO "Build QmlMaterialStyle's demo" ON)
+option(QMLMATERIALSTYLE_BUILD_WITH_SANITIZE
+       "Build QmlMaterialStyle With Sanitize Check" ON)
+
+if(QMLMATERIALSTYLE_BUILD_DEMO)
+  add_subdirectory(demo)
+endif(QMLMATERIALSTYLE_BUILD_DEMO)
