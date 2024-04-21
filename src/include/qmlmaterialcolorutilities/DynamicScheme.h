@@ -111,7 +111,7 @@ class DynamicScheme : public QObject {
 
   Q_ENUM(Style)
 
-  DynamicScheme(QObject* parent = nullptr);
+  explicit DynamicScheme(QObject* parent = nullptr);
 
   ~DynamicScheme();
 
