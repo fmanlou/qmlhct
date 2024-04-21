@@ -10,72 +10,72 @@ struct DynamicSchemeData {
   bool isDark{false};
   DynamicScheme::Style style;
 
-  QString backgroundColor;
-  QString onBackgroundColor;
+  QString background;
+  QString onBackground;
 
-  QString primaryColor;
-  QString onPrimaryColor;
+  QString primary;
+  QString onPrimary;
 
-  QString secondaryColor;
-  QString onSecondaryColor;
+  QString secondary;
+  QString onSecondary;
 
-  QString tertiaryColor;
-  QString onTeritaryColor;
+  QString tertiary;
+  QString onTeritary;
 
-  QString errorColor;
-  QString onErrorColor;
+  QString error;
+  QString onError;
 
-  QString primaryContainerColor;
-  QString onPrimaryContainerColor;
+  QString primaryContainer;
+  QString onPrimaryContainer;
 
-  QString secondaryContainerColor;
-  QString onSecondaryContainerColor;
+  QString secondaryContainer;
+  QString onSecondaryContainer;
 
-  QString tertiaryContainerColor;
-  QString onTertiaryContainerColor;
+  QString tertiaryContainer;
+  QString onTertiaryContainer;
 
-  QString errorContainerColor;
-  QString onErrorContainerColor;
+  QString errorContainer;
+  QString onErrorContainer;
 
-  QString primaryFixedColor;
-  QString primaryFixedDimColor;
+  QString primaryFixed;
+  QString primaryFixedDim;
 
-  QString onPrimaryFixedColor;
-  QString onPrimaryFixedVariantColor;
+  QString onPrimaryFixed;
+  QString onPrimaryFixedVariant;
 
-  QString secondaryFixedColor;
-  QString secondaryFixedDimColor;
+  QString secondaryFixed;
+  QString secondaryFixedDim;
 
-  QString onSecondaryFixedColor;
-  QString onSecondaryFixedVariantColor;
+  QString onSecondaryFixed;
+  QString onSecondaryFixedVariant;
 
-  QString tertiaryFixedColor;
-  QString tertiaryFixedDimColor;
+  QString tertiaryFixed;
+  QString tertiaryFixedDim;
 
-  QString onTertiaryFixedColor;
-  QString onTertiaryFixedVariantColor;
+  QString onTertiaryFixed;
+  QString onTertiaryFixedVariant;
 
-  QString surfaceDimColor;
-  QString surfaceColor;
-  QString surfaceBrightColor;
+  QString surfaceDim;
+  QString surface;
+  QString surfaceBright;
 
-  QString surfaceContainerLowestColor;
-  QString surfaceContainerLowColor;
-  QString surfaceContainerColor;
-  QString surfaceContainerHighColor;
-  QString surfaceContainerHighestColor;
+  QString surfaceContainerLowest;
+  QString surfaceContainerLow;
+  QString surfaceContainer;
+  QString surfaceContainerHigh;
+  QString surfaceContainerHighest;
 
-  QString onSurfaceColor;
-  QString onSurfaceVariantColor;
-  QString outlineColor;
-  QString outlineVariantColor;
+  QString onSurface;
+  QString onSurfaceVariant;
+  QString outline;
+  QString outlineVariant;
 
-  QString inverseSurfaceColor;
-  QString inverseOnSurfaceColor;
-  QString inversePrimaryColor;
+  QString inverseSurface;
+  QString inverseOnSurface;
+  QString inversePrimary;
 
-  QString scrimColor;
-  QString shadowColor;
+  QString scrim;
+  QString shadow;
 };
 
 struct DynamicSchemeImpl {

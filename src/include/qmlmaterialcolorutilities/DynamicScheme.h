@@ -12,89 +12,70 @@ class DynamicScheme : public QObject {
   Q_PROPERTY(QString baseColor READ baseColor WRITE setBaseColor NOTIFY
                  baseColorChanged)
 
-  Q_PROPERTY(QString backgroundColor READ backgroundColor NOTIFY changed)
-  Q_PROPERTY(QString onBackgroundColor READ onBackgroundColor NOTIFY changed)
-  Q_PROPERTY(QString primaryColor READ primaryColor NOTIFY changed)
-  Q_PROPERTY(QString onPrimaryColor READ onPrimaryColor NOTIFY changed)
-  Q_PROPERTY(QString secondaryColor READ secondaryColor NOTIFY changed)
-  Q_PROPERTY(QString onSecondaryColor READ onSecondaryColor NOTIFY changed)
-  Q_PROPERTY(QString tertiaryColor READ tertiaryColor NOTIFY changed)
-  Q_PROPERTY(QString onTeritaryColor READ onTeritaryColor NOTIFY changed)
-  Q_PROPERTY(QString errorColor READ errorColor NOTIFY changed)
-  Q_PROPERTY(QString onErrorColor READ onErrorColor NOTIFY changed)
+  Q_PROPERTY(QString background READ background NOTIFY changed)
+  Q_PROPERTY(QString onBackground READ onBackground NOTIFY changed)
+  Q_PROPERTY(QString primary READ primary NOTIFY changed)
+  Q_PROPERTY(QString onPrimary READ onPrimary NOTIFY changed)
+  Q_PROPERTY(QString secondary READ secondary NOTIFY changed)
+  Q_PROPERTY(QString onSecondary READ onSecondary NOTIFY changed)
+  Q_PROPERTY(QString tertiary READ tertiary NOTIFY changed)
+  Q_PROPERTY(QString onTeritary READ onTeritary NOTIFY changed)
+  Q_PROPERTY(QString error READ error NOTIFY changed)
+  Q_PROPERTY(QString onError READ onError NOTIFY changed)
+  Q_PROPERTY(QString primaryContainer READ primaryContainer NOTIFY changed)
+  Q_PROPERTY(QString onPrimaryContainer READ onPrimaryContainer NOTIFY changed)
+  Q_PROPERTY(QString secondaryContainer READ secondaryContainer NOTIFY changed)
   Q_PROPERTY(
-      QString primaryContainerColor READ primaryContainerColor NOTIFY changed)
-  Q_PROPERTY(QString onPrimaryContainerColor READ onPrimaryContainerColor NOTIFY
+      QString onSecondaryContainer READ onSecondaryContainer NOTIFY changed)
+  Q_PROPERTY(QString tertiaryContainer READ tertiaryContainer NOTIFY changed)
+  Q_PROPERTY(
+      QString onTertiaryContainer READ onTertiaryContainer NOTIFY changed)
+  Q_PROPERTY(QString errorContainer READ errorContainer NOTIFY changed)
+  Q_PROPERTY(QString onErrorContainer READ onErrorContainer NOTIFY changed)
+
+  Q_PROPERTY(QString primaryFixed READ primaryFixed NOTIFY changed)
+  Q_PROPERTY(QString primaryFixedDim READ primaryFixedDim NOTIFY changed)
+  Q_PROPERTY(QString onPrimaryFixed READ onPrimaryFixed NOTIFY changed)
+  Q_PROPERTY(
+      QString onPrimaryFixedVariant READ onPrimaryFixedVariant NOTIFY changed)
+
+  Q_PROPERTY(QString secondaryFixed READ secondaryFixed NOTIFY changed)
+  Q_PROPERTY(QString secondaryFixedDim READ secondaryFixedDim NOTIFY changed)
+  Q_PROPERTY(QString onSecondaryFixed READ onSecondaryFixed NOTIFY changed)
+  Q_PROPERTY(QString onSecondaryFixedVariant READ onSecondaryFixedVariant NOTIFY
                  changed)
-  Q_PROPERTY(QString secondaryContainerColor READ secondaryContainerColor NOTIFY
+
+  Q_PROPERTY(QString tertiaryFixed READ tertiaryFixed NOTIFY changed)
+  Q_PROPERTY(QString tertiaryFixedDim READ tertiaryFixedDim NOTIFY changed)
+  Q_PROPERTY(QString onTertiaryFixed READ onTertiaryFixed NOTIFY changed)
+  Q_PROPERTY(
+      QString onTertiaryFixedVariant READ onTertiaryFixedVariant NOTIFY changed)
+
+  Q_PROPERTY(QString surfaceDim READ surfaceDim NOTIFY changed)
+  Q_PROPERTY(QString surface READ surface NOTIFY changed)
+  Q_PROPERTY(QString surfaceBright READ surfaceBright NOTIFY changed)
+
+  Q_PROPERTY(
+      QString surfaceContainerLowest READ surfaceContainerLowest NOTIFY changed)
+  Q_PROPERTY(
+      QString surfaceContainerLow READ surfaceContainerLow NOTIFY changed)
+  Q_PROPERTY(QString surfaceContainer READ surfaceContainer NOTIFY changed)
+  Q_PROPERTY(
+      QString surfaceContainerHigh READ surfaceContainerHigh NOTIFY changed)
+  Q_PROPERTY(QString surfaceContainerHighest READ surfaceContainerHighest NOTIFY
                  changed)
-  Q_PROPERTY(QString onSecondaryContainerColor READ onSecondaryContainerColor
-                 NOTIFY changed)
-  Q_PROPERTY(
-      QString tertiaryContainerColor READ tertiaryContainerColor NOTIFY changed)
-  Q_PROPERTY(QString onTertiaryContainerColor READ onTertiaryContainerColor
-                 NOTIFY changed)
-  Q_PROPERTY(
-      QString errorContainerColor READ errorContainerColor NOTIFY changed)
-  Q_PROPERTY(
-      QString onErrorContainerColor READ onErrorContainerColor NOTIFY changed)
 
-  Q_PROPERTY(QString primaryFixedColor READ primaryFixedColor NOTIFY changed)
-  Q_PROPERTY(
-      QString primaryFixedDimColor READ primaryFixedDimColor NOTIFY changed)
-  Q_PROPERTY(
-      QString onPrimaryFixedColor READ onPrimaryFixedColor NOTIFY changed)
-  Q_PROPERTY(QString onPrimaryFixedVariantColor READ onPrimaryFixedVariantColor
-                 NOTIFY changed)
+  Q_PROPERTY(QString onSurface READ onSurface NOTIFY changed)
+  Q_PROPERTY(QString onSurfaceVariant READ onSurfaceVariant NOTIFY changed)
+  Q_PROPERTY(QString outline READ outline NOTIFY changed)
+  Q_PROPERTY(QString outlineVariant READ outlineVariant NOTIFY changed)
 
-  Q_PROPERTY(
-      QString secondaryFixedColor READ secondaryFixedColor NOTIFY changed)
-  Q_PROPERTY(
-      QString secondaryFixedDimColor READ secondaryFixedDimColor NOTIFY changed)
-  Q_PROPERTY(
-      QString onSecondaryFixedColor READ onSecondaryFixedColor NOTIFY changed)
-  Q_PROPERTY(QString onSecondaryFixedVariantColor READ
-                 onSecondaryFixedVariantColor NOTIFY changed)
+  Q_PROPERTY(QString inverseSurface READ inverseSurface NOTIFY changed)
+  Q_PROPERTY(QString inverseOnSurface READ inverseOnSurface NOTIFY changed)
+  Q_PROPERTY(QString inversePrimary READ inversePrimary NOTIFY changed)
 
-  Q_PROPERTY(QString tertiaryFixedColor READ tertiaryFixedColor NOTIFY changed)
-  Q_PROPERTY(
-      QString tertiaryFixedDimColor READ tertiaryFixedDimColor NOTIFY changed)
-  Q_PROPERTY(
-      QString onTertiaryFixedColor READ onTertiaryFixedColor NOTIFY changed)
-  Q_PROPERTY(QString onTertiaryFixedVariantColor READ
-                 onTertiaryFixedVariantColor NOTIFY changed)
-
-  Q_PROPERTY(QString surfaceDimColor READ surfaceDimColor NOTIFY changed)
-  Q_PROPERTY(QString surfaceColor READ surfaceColor NOTIFY changed)
-  Q_PROPERTY(QString surfaceBrightColor READ surfaceBrightColor NOTIFY changed)
-
-  Q_PROPERTY(QString surfaceContainerLowestColor READ
-                 surfaceContainerLowestColor NOTIFY changed)
-  Q_PROPERTY(QString surfaceContainerLowColor READ surfaceContainerLowColor
-                 NOTIFY changed)
-  Q_PROPERTY(
-      QString surfaceContainerColor READ surfaceContainerColor NOTIFY changed)
-  Q_PROPERTY(QString surfaceContainerHighColor READ surfaceContainerHighColor
-                 NOTIFY changed)
-  Q_PROPERTY(QString surfaceContainerHighestColor READ
-                 surfaceContainerHighestColor NOTIFY changed)
-
-  Q_PROPERTY(QString onSurfaceColor READ onSurfaceColor NOTIFY changed)
-  Q_PROPERTY(
-      QString onSurfaceVariantColor READ onSurfaceVariantColor NOTIFY changed)
-  Q_PROPERTY(QString outlineColor READ outlineColor NOTIFY changed)
-  Q_PROPERTY(
-      QString outlineVariantColor READ outlineVariantColor NOTIFY changed)
-
-  Q_PROPERTY(
-      QString inverseSurfaceColor READ inverseSurfaceColor NOTIFY changed)
-  Q_PROPERTY(
-      QString inverseOnSurfaceColor READ inverseOnSurfaceColor NOTIFY changed)
-  Q_PROPERTY(
-      QString inversePrimaryColor READ inversePrimaryColor NOTIFY changed)
-
-  Q_PROPERTY(QString scrimColor READ scrimColor NOTIFY changed)
-  Q_PROPERTY(QString shadowColor READ shadowColor NOTIFY changed)
+  Q_PROPERTY(QString scrim READ scrim NOTIFY changed)
+  Q_PROPERTY(QString shadow READ shadow NOTIFY changed)
 
  public:
   enum Style {
@@ -127,61 +108,61 @@ class DynamicScheme : public QObject {
 
   void setBaseColor(const QString& color);
 
-  QString backgroundColor() const;
-  QString onBackgroundColor() const;
-  QString primaryColor() const;
-  QString onPrimaryColor() const;
-  QString secondaryColor() const;
-  QString onSecondaryColor() const;
-  QString tertiaryColor() const;
-  QString onTeritaryColor() const;
-  QString errorColor() const;
-  QString onErrorColor() const;
-  QString primaryContainerColor() const;
-  QString onPrimaryContainerColor() const;
-  QString secondaryContainerColor() const;
-  QString onSecondaryContainerColor() const;
-  QString tertiaryContainerColor() const;
-  QString onTertiaryContainerColor() const;
-  QString errorContainerColor() const;
-  QString onErrorContainerColor() const;
+  QString background() const;
+  QString onBackground() const;
+  QString primary() const;
+  QString onPrimary() const;
+  QString secondary() const;
+  QString onSecondary() const;
+  QString tertiary() const;
+  QString onTeritary() const;
+  QString error() const;
+  QString onError() const;
+  QString primaryContainer() const;
+  QString onPrimaryContainer() const;
+  QString secondaryContainer() const;
+  QString onSecondaryContainer() const;
+  QString tertiaryContainer() const;
+  QString onTertiaryContainer() const;
+  QString errorContainer() const;
+  QString onErrorContainer() const;
 
-  QString primaryFixedColor() const;
-  QString primaryFixedDimColor() const;
-  QString onPrimaryFixedColor() const;
-  QString onPrimaryFixedVariantColor() const;
+  QString primaryFixed() const;
+  QString primaryFixedDim() const;
+  QString onPrimaryFixed() const;
+  QString onPrimaryFixedVariant() const;
 
-  QString secondaryFixedColor() const;
-  QString secondaryFixedDimColor() const;
-  QString onSecondaryFixedColor() const;
-  QString onSecondaryFixedVariantColor() const;
+  QString secondaryFixed() const;
+  QString secondaryFixedDim() const;
+  QString onSecondaryFixed() const;
+  QString onSecondaryFixedVariant() const;
 
-  QString tertiaryFixedColor() const;
-  QString tertiaryFixedDimColor() const;
-  QString onTertiaryFixedColor() const;
-  QString onTertiaryFixedVariantColor() const;
+  QString tertiaryFixed() const;
+  QString tertiaryFixedDim() const;
+  QString onTertiaryFixed() const;
+  QString onTertiaryFixedVariant() const;
 
-  QString surfaceDimColor() const;
-  QString surfaceColor() const;
-  QString surfaceBrightColor() const;
+  QString surfaceDim() const;
+  QString surface() const;
+  QString surfaceBright() const;
 
-  QString surfaceContainerLowestColor() const;
-  QString surfaceContainerLowColor() const;
-  QString surfaceContainerColor() const;
-  QString surfaceContainerHighColor() const;
-  QString surfaceContainerHighestColor() const;
+  QString surfaceContainerLowest() const;
+  QString surfaceContainerLow() const;
+  QString surfaceContainer() const;
+  QString surfaceContainerHigh() const;
+  QString surfaceContainerHighest() const;
 
-  QString onSurfaceColor() const;
-  QString onSurfaceVariantColor() const;
-  QString outlineColor() const;
-  QString outlineVariantColor() const;
+  QString onSurface() const;
+  QString onSurfaceVariant() const;
+  QString outline() const;
+  QString outlineVariant() const;
 
-  QString inverseSurfaceColor() const;
-  QString inverseOnSurfaceColor() const;
-  QString inversePrimaryColor() const;
+  QString inverseSurface() const;
+  QString inverseOnSurface() const;
+  QString inversePrimary() const;
 
-  QString scrimColor() const;
-  QString shadowColor() const;
+  QString scrim() const;
+  QString shadow() const;
 
  signals:
   void isDarkChanged();

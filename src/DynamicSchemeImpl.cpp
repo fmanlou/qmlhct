@@ -111,90 +111,81 @@ void DynamicSchemeImpl::update(const QString& color, bool isDark,
 
 void DynamicSchemeImpl::update(
     const material_color_utilities::DynamicScheme& dynamic_scheme) {
-  d.backgroundColor = argbToRgbString(dynamic_scheme.GetBackground());
-  d.onBackgroundColor = argbToRgbString(dynamic_scheme.GetOnBackground());
+  d.background = argbToRgbString(dynamic_scheme.GetBackground());
+  d.onBackground = argbToRgbString(dynamic_scheme.GetOnBackground());
 
-  d.primaryColor = argbToRgbString(dynamic_scheme.GetPrimary());
-  d.onPrimaryColor = argbToRgbString(dynamic_scheme.GetOnPrimary());
+  d.primary = argbToRgbString(dynamic_scheme.GetPrimary());
+  d.onPrimary = argbToRgbString(dynamic_scheme.GetOnPrimary());
 
-  d.secondaryColor = argbToRgbString(dynamic_scheme.GetSecondary());
-  d.onSecondaryColor = argbToRgbString(dynamic_scheme.GetOnSecondary());
+  d.secondary = argbToRgbString(dynamic_scheme.GetSecondary());
+  d.onSecondary = argbToRgbString(dynamic_scheme.GetOnSecondary());
 
-  d.tertiaryColor = argbToRgbString(dynamic_scheme.GetTertiary());
-  d.onTeritaryColor = argbToRgbString(dynamic_scheme.GetOnTertiary());
+  d.tertiary = argbToRgbString(dynamic_scheme.GetTertiary());
+  d.onTeritary = argbToRgbString(dynamic_scheme.GetOnTertiary());
 
-  d.errorColor = argbToRgbString(dynamic_scheme.GetError());
-  d.onErrorColor = argbToRgbString(dynamic_scheme.GetOnError());
+  d.error = argbToRgbString(dynamic_scheme.GetError());
+  d.onError = argbToRgbString(dynamic_scheme.GetOnError());
 
-  d.primaryContainerColor =
-      argbToRgbString(dynamic_scheme.GetPrimaryContainer());
-  d.onPrimaryContainerColor =
+  d.primaryContainer = argbToRgbString(dynamic_scheme.GetPrimaryContainer());
+  d.onPrimaryContainer =
       argbToRgbString(dynamic_scheme.GetOnPrimaryContainer());
 
-  d.secondaryContainerColor =
+  d.secondaryContainer =
       argbToRgbString(dynamic_scheme.GetSecondaryContainer());
-  d.onSecondaryContainerColor =
+  d.onSecondaryContainer =
       argbToRgbString(dynamic_scheme.GetOnSecondaryContainer());
 
-  d.tertiaryContainerColor =
-      argbToRgbString(dynamic_scheme.GetTertiaryContainer());
-  d.onTertiaryContainerColor =
+  d.tertiaryContainer = argbToRgbString(dynamic_scheme.GetTertiaryContainer());
+  d.onTertiaryContainer =
       argbToRgbString(dynamic_scheme.GetOnTertiaryContainer());
 
-  d.errorContainerColor = argbToRgbString(dynamic_scheme.GetErrorContainer());
-  d.onErrorContainerColor =
-      argbToRgbString(dynamic_scheme.GetOnErrorContainer());
+  d.errorContainer = argbToRgbString(dynamic_scheme.GetErrorContainer());
+  d.onErrorContainer = argbToRgbString(dynamic_scheme.GetOnErrorContainer());
 
-  d.primaryFixedColor = argbToRgbString(dynamic_scheme.GetPrimaryFixed());
-  d.primaryFixedDimColor = argbToRgbString(dynamic_scheme.GetPrimaryFixedDim());
+  d.primaryFixed = argbToRgbString(dynamic_scheme.GetPrimaryFixed());
+  d.primaryFixedDim = argbToRgbString(dynamic_scheme.GetPrimaryFixedDim());
 
-  d.onPrimaryFixedColor = argbToRgbString(dynamic_scheme.GetOnPrimaryFixed());
-  d.onPrimaryFixedVariantColor =
+  d.onPrimaryFixed = argbToRgbString(dynamic_scheme.GetOnPrimaryFixed());
+  d.onPrimaryFixedVariant =
       argbToRgbString(dynamic_scheme.GetOnPrimaryFixedVariant());
 
-  d.secondaryFixedColor = argbToRgbString(dynamic_scheme.GetSecondaryFixed());
-  d.secondaryFixedDimColor =
-      argbToRgbString(dynamic_scheme.GetSecondaryFixedDim());
+  d.secondaryFixed = argbToRgbString(dynamic_scheme.GetSecondaryFixed());
+  d.secondaryFixedDim = argbToRgbString(dynamic_scheme.GetSecondaryFixedDim());
 
-  d.onSecondaryFixedColor =
-      argbToRgbString(dynamic_scheme.GetOnSecondaryFixed());
-  d.onSecondaryFixedVariantColor =
+  d.onSecondaryFixed = argbToRgbString(dynamic_scheme.GetOnSecondaryFixed());
+  d.onSecondaryFixedVariant =
       argbToRgbString(dynamic_scheme.GetOnSecondaryFixedVariant());
 
-  d.tertiaryFixedColor = argbToRgbString(dynamic_scheme.GetTertiaryFixed());
-  d.tertiaryFixedDimColor =
-      argbToRgbString(dynamic_scheme.GetTertiaryFixedDim());
+  d.tertiaryFixed = argbToRgbString(dynamic_scheme.GetTertiaryFixed());
+  d.tertiaryFixedDim = argbToRgbString(dynamic_scheme.GetTertiaryFixedDim());
 
-  d.onTertiaryFixedColor = argbToRgbString(dynamic_scheme.GetOnTertiaryFixed());
-  d.onTertiaryFixedVariantColor =
+  d.onTertiaryFixed = argbToRgbString(dynamic_scheme.GetOnTertiaryFixed());
+  d.onTertiaryFixedVariant =
       argbToRgbString(dynamic_scheme.GetOnTertiaryFixedVariant());
 
-  d.surfaceDimColor = argbToRgbString(dynamic_scheme.GetSurfaceDim());
-  d.surfaceColor = argbToRgbString(dynamic_scheme.GetSurface());
-  d.surfaceBrightColor = argbToRgbString(dynamic_scheme.GetSurfaceBright());
+  d.surfaceDim = argbToRgbString(dynamic_scheme.GetSurfaceDim());
+  d.surface = argbToRgbString(dynamic_scheme.GetSurface());
+  d.surfaceBright = argbToRgbString(dynamic_scheme.GetSurfaceBright());
 
-  d.surfaceContainerLowestColor =
+  d.surfaceContainerLowest =
       argbToRgbString(dynamic_scheme.GetSurfaceContainerLowest());
-  d.surfaceContainerLowColor =
+  d.surfaceContainerLow =
       argbToRgbString(dynamic_scheme.GetSurfaceContainerLow());
-  d.surfaceContainerColor =
-      argbToRgbString(dynamic_scheme.GetSurfaceContainer());
-  d.surfaceContainerHighColor =
+  d.surfaceContainer = argbToRgbString(dynamic_scheme.GetSurfaceContainer());
+  d.surfaceContainerHigh =
       argbToRgbString(dynamic_scheme.GetSurfaceContainerHigh());
-  d.surfaceContainerHighestColor =
+  d.surfaceContainerHighest =
       argbToRgbString(dynamic_scheme.GetSurfaceContainerHighest());
 
-  d.onSurfaceColor = argbToRgbString(dynamic_scheme.GetOnSurface());
-  d.onSurfaceVariantColor =
-      argbToRgbString(dynamic_scheme.GetOnSurfaceVariant());
-  d.outlineColor = argbToRgbString(dynamic_scheme.GetOutline());
-  d.outlineVariantColor = argbToRgbString(dynamic_scheme.GetOutlineVariant());
+  d.onSurface = argbToRgbString(dynamic_scheme.GetOnSurface());
+  d.onSurfaceVariant = argbToRgbString(dynamic_scheme.GetOnSurfaceVariant());
+  d.outline = argbToRgbString(dynamic_scheme.GetOutline());
+  d.outlineVariant = argbToRgbString(dynamic_scheme.GetOutlineVariant());
 
-  d.inverseSurfaceColor = argbToRgbString(dynamic_scheme.GetInverseSurface());
-  d.inverseOnSurfaceColor =
-      argbToRgbString(dynamic_scheme.GetInverseOnSurface());
-  d.inversePrimaryColor = argbToRgbString(dynamic_scheme.GetInversePrimary());
+  d.inverseSurface = argbToRgbString(dynamic_scheme.GetInverseSurface());
+  d.inverseOnSurface = argbToRgbString(dynamic_scheme.GetInverseOnSurface());
+  d.inversePrimary = argbToRgbString(dynamic_scheme.GetInversePrimary());
 
-  d.scrimColor = argbToRgbString(dynamic_scheme.GetScrim());
-  d.shadowColor = argbToRgbString(dynamic_scheme.GetShadow());
+  d.scrim = argbToRgbString(dynamic_scheme.GetScrim());
+  d.shadow = argbToRgbString(dynamic_scheme.GetShadow());
 }

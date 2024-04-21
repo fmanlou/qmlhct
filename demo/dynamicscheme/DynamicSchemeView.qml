@@ -6,7 +6,7 @@ import Hct 1.0
 
 Rectangle {
     anchors.fill: parent
-    color: scheme.backgroundColor
+    color: scheme.background
 
     property DynamicScheme scheme: DynamicScheme {
         baseColor: colorDialog.color
@@ -55,14 +55,14 @@ Rectangle {
 
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.primaryColor
+                            color: scheme.primary
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Primary"
-                                color: scheme.onPrimaryColor
+                                color: scheme.onPrimary
                                 font.pixelSize: 14
                             }
                         }
@@ -70,14 +70,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.onPrimaryColor
+                            color: scheme.onPrimary
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Primary"
-                                color: scheme.primaryColor
+                                color: scheme.primary
                                 font.pixelSize: 14
                             }
                         }
@@ -90,14 +90,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.secondaryColor
+                            color: scheme.secondary
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Secondary"
-                                color: scheme.onSecondaryColor
+                                color: scheme.onSecondary
                                 font.pixelSize: 14
                             }
                         }
@@ -105,14 +105,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.onSecondaryColor
+                            color: scheme.onSecondary
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Secondary"
-                                color: scheme.secondaryColor
+                                color: scheme.secondary
                                 font.pixelSize: 14
                             }
                         }
@@ -125,14 +125,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.tertiaryColor
+                            color: scheme.tertiary
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Tertiary"
-                                color: scheme.onTeritaryColor
+                                color: scheme.onTeritary
                                 font.pixelSize: 14
                             }
                         }
@@ -140,14 +140,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.onTeritaryColor
+                            color: scheme.onTeritary
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Tertiary"
-                                color: scheme.tertiaryColor
+                                color: scheme.tertiary
                                 font.pixelSize: 14
                             }
                         }
@@ -165,14 +165,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.primaryContainerColor
+                            color: scheme.primaryContainer
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Primary Container"
-                                color: scheme.onPrimaryContainerColor
+                                color: scheme.onPrimaryContainer
                                 font.pixelSize: 14
                             }
                         }
@@ -180,14 +180,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.onPrimaryContainerColor
+                            color: scheme.onPrimaryContainer
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Primary Container"
-                                color: scheme.primaryContainerColor
+                                color: scheme.primaryContainer
                                 font.pixelSize: 14
                             }
                         }
@@ -200,14 +200,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.secondaryContainerColor
+                            color: scheme.secondaryContainer
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Secondary Container"
-                                color: scheme.onSecondaryContainerColor
+                                color: scheme.onSecondaryContainer
                                 font.pixelSize: 14
                             }
                         }
@@ -215,14 +215,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.onSecondaryContainerColor
+                            color: scheme.onSecondaryContainer
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Secondary Container"
-                                color: scheme.secondaryContainerColor
+                                color: scheme.secondaryContainer
                                 font.pixelSize: 14
                             }
                         }
@@ -235,14 +235,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.tertiaryContainerColor
+                            color: scheme.tertiaryContainer
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Tertiary Container"
-                                color: scheme.onTertiaryContainerColor
+                                color: scheme.onTertiaryContainer
                                 font.pixelSize: 14
                             }
                         }
@@ -250,14 +250,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.onTertiaryContainerColor
+                            color: scheme.onTertiaryContainer
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Tertiary Container"
-                                color: scheme.tertiaryContainerColor
+                                color: scheme.tertiaryContainer
                                 font.pixelSize: 14
                             }
                         }
@@ -279,14 +279,14 @@ Rectangle {
                             Rectangle {
                                 Layout.fillWidth: true
                                 height: 55
-                                color: scheme.primaryFixedColor
+                                color: scheme.primaryFixed
 
                                 Text {
                                     anchors.fill: parent
                                     wrapMode: Text.WordWrap
                                     padding: 10
                                     text: "Primary Fixed"
-                                    color: scheme.onPrimaryFixedColor
+                                    color: scheme.onPrimaryFixed
                                     font.pixelSize: 14
                                 }
                             }
@@ -294,14 +294,14 @@ Rectangle {
                             Rectangle {
                                 Layout.fillWidth: true
                                 height: 55
-                                color: scheme.primaryFixedDimColor
+                                color: scheme.primaryFixedDim
 
                                 Text {
                                     anchors.fill: parent
                                     wrapMode: Text.WordWrap
                                     padding: 10
                                     text: "Primary Fixed Dim"
-                                    color: scheme.onPrimaryFixedVariantColor
+                                    color: scheme.onPrimaryFixedVariant
                                     font.pixelSize: 14
                                 }
                             }
@@ -310,14 +310,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 40
-                            color: scheme.onPrimaryFixedColor
+                            color: scheme.onPrimaryFixed
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Primary Fixed"
-                                color: scheme.primaryFixedColor
+                                color: scheme.primaryFixed
                                 font.pixelSize: 14
                             }
                         }
@@ -325,14 +325,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 40
-                            color: scheme.onPrimaryFixedVariantColor
+                            color: scheme.onPrimaryFixedVariant
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Primary Fixed Variant"
-                                color: scheme.primaryFixedDimColor
+                                color: scheme.primaryFixedDim
                                 font.pixelSize: 14
                             }
                         }
@@ -349,14 +349,14 @@ Rectangle {
                             Rectangle {
                                 Layout.fillWidth: true
                                 height: 55
-                                color: scheme.secondaryFixedColor
+                                color: scheme.secondaryFixed
 
                                 Text {
                                     anchors.fill: parent
                                     wrapMode: Text.WordWrap
                                     padding: 10
                                     text: "Secondary Fixed"
-                                    color: scheme.onSecondaryFixedColor
+                                    color: scheme.onSecondaryFixed
                                     font.pixelSize: 14
                                 }
                             }
@@ -364,14 +364,14 @@ Rectangle {
                             Rectangle {
                                 Layout.fillWidth: true
                                 height: 55
-                                color: scheme.secondaryFixedDimColor
+                                color: scheme.secondaryFixedDim
 
                                 Text {
                                     anchors.fill: parent
                                     wrapMode: Text.WordWrap
                                     padding: 10
                                     text: "Secondary Fixed Dim"
-                                    color: scheme.onSecondaryFixedVariantColor
+                                    color: scheme.onSecondaryFixedVariant
                                     font.pixelSize: 14
                                 }
                             }
@@ -380,14 +380,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 40
-                            color: scheme.onSecondaryFixedColor
+                            color: scheme.onSecondaryFixed
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Secondary Fixed"
-                                color: scheme.secondaryFixedColor
+                                color: scheme.secondaryFixed
                                 font.pixelSize: 14
                             }
                         }
@@ -395,14 +395,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 40
-                            color: scheme.onSecondaryFixedVariantColor
+                            color: scheme.onSecondaryFixedVariant
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Secondary Fixed Variant"
-                                color: scheme.secondaryFixedDimColor
+                                color: scheme.secondaryFixedDim
                                 font.pixelSize: 14
                             }
                         }
@@ -419,14 +419,14 @@ Rectangle {
                             Rectangle {
                                 Layout.fillWidth: true
                                 height: 55
-                                color: scheme.tertiaryFixedColor
+                                color: scheme.tertiaryFixed
 
                                 Text {
                                     anchors.fill: parent
                                     wrapMode: Text.WordWrap
                                     padding: 10
                                     text: "Tertiary Fixed"
-                                    color: scheme.onTertiaryFixedColor
+                                    color: scheme.onTertiaryFixed
                                     font.pixelSize: 14
                                 }
                             }
@@ -434,14 +434,14 @@ Rectangle {
                             Rectangle {
                                 Layout.fillWidth: true
                                 height: 55
-                                color: scheme.tertiaryFixedDimColor
+                                color: scheme.tertiaryFixedDim
 
                                 Text {
                                     anchors.fill: parent
                                     wrapMode: Text.WordWrap
                                     padding: 10
                                     text: "Tertiary Fixed Dim"
-                                    color: scheme.onTertiaryFixedVariantColor
+                                    color: scheme.onTertiaryFixedVariant
                                     font.pixelSize: 14
                                 }
                             }
@@ -450,14 +450,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 40
-                            color: scheme.onTertiaryFixedColor
+                            color: scheme.onTertiaryFixed
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Tertiary Fixed"
-                                color: scheme.tertiaryFixedColor
+                                color: scheme.tertiaryFixed
                                 font.pixelSize: 14
                             }
                         }
@@ -465,14 +465,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 40
-                            color: scheme.onTertiaryFixedVariantColor
+                            color: scheme.onTertiaryFixedVariant
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Tertiary Fixed Variant"
-                                color: scheme.tertiaryFixedDimColor
+                                color: scheme.tertiaryFixedDim
                                 font.pixelSize: 14
                             }
                         }
@@ -489,14 +489,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.surfaceDimColor
+                            color: scheme.surfaceDim
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Surface Dim"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -504,14 +504,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.surfaceColor
+                            color: scheme.surface
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Surface"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -519,14 +519,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 55
-                            color: scheme.surfaceBrightColor
+                            color: scheme.surfaceBright
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Surface Bright"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -538,14 +538,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 65
-                            color: scheme.surfaceContainerLowestColor
+                            color: scheme.surfaceContainerLowest
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Surface Container Lowest"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -553,14 +553,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 65
-                            color: scheme.surfaceContainerLowColor
+                            color: scheme.surfaceContainerLow
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Surface Container Low"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -568,14 +568,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 65
-                            color: scheme.surfaceContainerColor
+                            color: scheme.surfaceContainer
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Surface Container"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -583,14 +583,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 65
-                            color: scheme.surfaceContainerHighColor
+                            color: scheme.surfaceContainerHigh
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Surface Container High"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -598,14 +598,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 65
-                            color: scheme.surfaceContainerHighestColor
+                            color: scheme.surfaceContainerHighest
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Surface Container Highest"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -617,14 +617,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.onSurfaceColor
+                            color: scheme.onSurface
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Surface"
-                                color: scheme.surfaceColor
+                                color: scheme.surface
                                 font.pixelSize: 14
                             }
                         }
@@ -632,14 +632,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.onSurfaceVariantColor
+                            color: scheme.onSurfaceVariant
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "On Surface Variant"
-                                color: scheme.surfaceColor
+                                color: scheme.surface
                                 font.pixelSize: 14
                             }
                         }
@@ -647,14 +647,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.outlineColor
+                            color: scheme.outline
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Outline"
-                                color: scheme.surfaceColor
+                                color: scheme.surface
                                 font.pixelSize: 14
                             }
                         }
@@ -662,14 +662,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 45
-                            color: scheme.outlineVariantColor
+                            color: scheme.outlineVariant
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Outline Variant"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -689,14 +689,14 @@ Rectangle {
                     Rectangle {
                         Layout.fillWidth: true
                         height: 55
-                        color: scheme.errorColor
+                        color: scheme.error
 
                         Text {
                             anchors.fill: parent
                             wrapMode: Text.WordWrap
                             padding: 10
                             text: "Error"
-                            color: scheme.onErrorColor
+                            color: scheme.onError
                             font.pixelSize: 14
                         }
                     }
@@ -704,14 +704,14 @@ Rectangle {
                     Rectangle {
                         Layout.fillWidth: true
                         height: 45
-                        color: scheme.onErrorColor
+                        color: scheme.onError
 
                         Text {
                             anchors.fill: parent
                             wrapMode: Text.WordWrap
                             padding: 10
                             text: "On Error"
-                            color: scheme.errorColor
+                            color: scheme.error
                             font.pixelSize: 14
                         }
                     }
@@ -724,14 +724,14 @@ Rectangle {
                     Rectangle {
                         Layout.fillWidth: true
                         height: 55
-                        color: scheme.errorContainerColor
+                        color: scheme.errorContainer
 
                         Text {
                             anchors.fill: parent
                             wrapMode: Text.WordWrap
                             padding: 10
                             text: "Error Container"
-                            color: scheme.onErrorContainerColor
+                            color: scheme.onErrorContainer
                             font.pixelSize: 14
                         }
                     }
@@ -739,14 +739,14 @@ Rectangle {
                     Rectangle {
                         Layout.fillWidth: true
                         height: 45
-                        color: scheme.onErrorContainerColor
+                        color: scheme.onErrorContainer
 
                         Text {
                             anchors.fill: parent
                             wrapMode: Text.WordWrap
                             padding: 10
                             text: "On Error Container"
-                            color: scheme.errorContainerColor
+                            color: scheme.errorContainer
                             font.pixelSize: 14
                         }
                     }
@@ -767,42 +767,42 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 35
-                            color: scheme.inverseSurfaceColor
+                            color: scheme.inverseSurface
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Inverse Surface"
-                                color: scheme.surfaceColor
+                                color: scheme.surface
                                 font.pixelSize: 14
                             }
                         }
                         Rectangle {
                             Layout.fillWidth: true
                             height: 35
-                            color: scheme.inverseOnSurfaceColor
+                            color: scheme.inverseOnSurface
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Inverse On Surface"
-                                color: scheme.onSurfaceColor
+                                color: scheme.onSurface
                                 font.pixelSize: 14
                             }
                         }
                         Rectangle {
                             Layout.fillWidth: true
                             height: 35
-                            color: scheme.inversePrimaryColor
+                            color: scheme.inversePrimary
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Inverse Primary"
-                                color: scheme.onPrimaryContainerColor
+                                color: scheme.onPrimaryContainer
                                 font.pixelSize: 14
                             }
                         }
@@ -814,14 +814,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 40
-                            color: scheme.scrimColor
+                            color: scheme.scrim
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Scrim"
-                                color: scheme.inverseOnSurfaceColor
+                                color: scheme.inverseOnSurface
                                 font.pixelSize: 14
                             }
                         }
@@ -829,14 +829,14 @@ Rectangle {
                         Rectangle {
                             Layout.fillWidth: true
                             height: 40
-                            color: scheme.shadowColor
+                            color: scheme.shadow
 
                             Text {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 padding: 10
                                 text: "Shadow"
-                                color: scheme.inverseOnSurfaceColor
+                                color: scheme.inverseOnSurface
                                 font.pixelSize: 14
                             }
                         }

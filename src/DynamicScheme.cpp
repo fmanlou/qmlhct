@@ -41,130 +41,102 @@ void DynamicScheme::setBaseColor(const QString& color) {
   }
 }
 
-QString DynamicScheme::backgroundColor() const {
-  return impl->d.backgroundColor;
+QString DynamicScheme::background() const { return impl->d.background; }
+QString DynamicScheme::onBackground() const { return impl->d.onBackground; }
+QString DynamicScheme::primary() const { return impl->d.primary; }
+QString DynamicScheme::onPrimary() const { return impl->d.onPrimary; }
+QString DynamicScheme::secondary() const { return impl->d.secondary; }
+QString DynamicScheme::onSecondary() const { return impl->d.onSecondary; }
+QString DynamicScheme::tertiary() const { return impl->d.tertiary; }
+QString DynamicScheme::onTeritary() const { return impl->d.onTeritary; }
+QString DynamicScheme::error() const { return impl->d.error; }
+QString DynamicScheme::onError() const { return impl->d.onError; }
+QString DynamicScheme::primaryContainer() const {
+  return impl->d.primaryContainer;
 }
-QString DynamicScheme::onBackgroundColor() const {
-  return impl->d.onBackgroundColor;
+QString DynamicScheme::onPrimaryContainer() const {
+  return impl->d.onPrimaryContainer;
 }
-QString DynamicScheme::primaryColor() const { return impl->d.primaryColor; }
-QString DynamicScheme::onPrimaryColor() const { return impl->d.onPrimaryColor; }
-QString DynamicScheme::secondaryColor() const { return impl->d.secondaryColor; }
-QString DynamicScheme::onSecondaryColor() const {
-  return impl->d.onSecondaryColor;
+QString DynamicScheme::secondaryContainer() const {
+  return impl->d.secondaryContainer;
 }
-QString DynamicScheme::tertiaryColor() const { return impl->d.tertiaryColor; }
-QString DynamicScheme::onTeritaryColor() const {
-  return impl->d.onTeritaryColor;
+QString DynamicScheme::onSecondaryContainer() const {
+  return impl->d.onSecondaryContainer;
 }
-QString DynamicScheme::errorColor() const { return impl->d.errorColor; }
-QString DynamicScheme::onErrorColor() const { return impl->d.onErrorColor; }
-QString DynamicScheme::primaryContainerColor() const {
-  return impl->d.primaryContainerColor;
+QString DynamicScheme::tertiaryContainer() const {
+  return impl->d.tertiaryContainer;
 }
-QString DynamicScheme::onPrimaryContainerColor() const {
-  return impl->d.onPrimaryContainerColor;
+QString DynamicScheme::onTertiaryContainer() const {
+  return impl->d.onTertiaryContainer;
 }
-QString DynamicScheme::secondaryContainerColor() const {
-  return impl->d.secondaryContainerColor;
-}
-QString DynamicScheme::onSecondaryContainerColor() const {
-  return impl->d.onSecondaryContainerColor;
-}
-QString DynamicScheme::tertiaryContainerColor() const {
-  return impl->d.tertiaryContainerColor;
-}
-QString DynamicScheme::onTertiaryContainerColor() const {
-  return impl->d.onTertiaryContainerColor;
-}
-QString DynamicScheme::errorContainerColor() const {
-  return impl->d.errorContainerColor;
-}
-QString DynamicScheme::onErrorContainerColor() const {
-  return impl->d.onErrorContainerColor;
+QString DynamicScheme::errorContainer() const { return impl->d.errorContainer; }
+QString DynamicScheme::onErrorContainer() const {
+  return impl->d.onErrorContainer;
 }
 
-QString DynamicScheme::primaryFixedColor() const {
-  return impl->d.primaryFixedColor;
+QString DynamicScheme::primaryFixed() const { return impl->d.primaryFixed; }
+QString DynamicScheme::primaryFixedDim() const {
+  return impl->d.primaryFixedDim;
 }
-QString DynamicScheme::primaryFixedDimColor() const {
-  return impl->d.primaryFixedDimColor;
-}
-QString DynamicScheme::onPrimaryFixedColor() const {
-  return impl->d.onPrimaryFixedColor;
-}
-QString DynamicScheme::onPrimaryFixedVariantColor() const {
-  return impl->d.onPrimaryFixedVariantColor;
+QString DynamicScheme::onPrimaryFixed() const { return impl->d.onPrimaryFixed; }
+QString DynamicScheme::onPrimaryFixedVariant() const {
+  return impl->d.onPrimaryFixedVariant;
 }
 
-QString DynamicScheme::secondaryFixedColor() const {
-  return impl->d.secondaryFixedColor;
+QString DynamicScheme::secondaryFixed() const { return impl->d.secondaryFixed; }
+QString DynamicScheme::secondaryFixedDim() const {
+  return impl->d.secondaryFixedDim;
 }
-QString DynamicScheme::secondaryFixedDimColor() const {
-  return impl->d.secondaryFixedDimColor;
+QString DynamicScheme::onSecondaryFixed() const {
+  return impl->d.onSecondaryFixed;
 }
-QString DynamicScheme::onSecondaryFixedColor() const {
-  return impl->d.onSecondaryFixedColor;
-}
-QString DynamicScheme::onSecondaryFixedVariantColor() const {
-  return impl->d.onSecondaryFixedVariantColor;
+QString DynamicScheme::onSecondaryFixedVariant() const {
+  return impl->d.onSecondaryFixedVariant;
 }
 
-QString DynamicScheme::tertiaryFixedColor() const {
-  return impl->d.tertiaryFixedColor;
+QString DynamicScheme::tertiaryFixed() const { return impl->d.tertiaryFixed; }
+QString DynamicScheme::tertiaryFixedDim() const {
+  return impl->d.tertiaryFixedDim;
 }
-QString DynamicScheme::tertiaryFixedDimColor() const {
-  return impl->d.tertiaryFixedDimColor;
+QString DynamicScheme::onTertiaryFixed() const {
+  return impl->d.onTertiaryFixed;
 }
-QString DynamicScheme::onTertiaryFixedColor() const {
-  return impl->d.onTertiaryFixedColor;
-}
-QString DynamicScheme::onTertiaryFixedVariantColor() const {
-  return impl->d.onTertiaryFixedVariantColor;
+QString DynamicScheme::onTertiaryFixedVariant() const {
+  return impl->d.onTertiaryFixedVariant;
 }
 
-QString DynamicScheme::surfaceDimColor() const {
-  return impl->d.surfaceDimColor;
+QString DynamicScheme::surfaceDim() const { return impl->d.surfaceDim; }
+QString DynamicScheme::surface() const { return impl->d.surface; }
+QString DynamicScheme::surfaceBright() const { return impl->d.surfaceBright; }
+
+QString DynamicScheme::surfaceContainerLowest() const {
+  return impl->d.surfaceContainerLowest;
 }
-QString DynamicScheme::surfaceColor() const { return impl->d.surfaceColor; }
-QString DynamicScheme::surfaceBrightColor() const {
-  return impl->d.surfaceBrightColor;
+QString DynamicScheme::surfaceContainerLow() const {
+  return impl->d.surfaceContainerLow;
+}
+QString DynamicScheme::surfaceContainer() const {
+  return impl->d.surfaceContainer;
+}
+QString DynamicScheme::surfaceContainerHigh() const {
+  return impl->d.surfaceContainerHigh;
+}
+QString DynamicScheme::surfaceContainerHighest() const {
+  return impl->d.surfaceContainerHighest;
 }
 
-QString DynamicScheme::surfaceContainerLowestColor() const {
-  return impl->d.surfaceContainerLowestColor;
+QString DynamicScheme::onSurface() const { return impl->d.onSurface; }
+QString DynamicScheme::onSurfaceVariant() const {
+  return impl->d.onSurfaceVariant;
 }
-QString DynamicScheme::surfaceContainerLowColor() const {
-  return impl->d.surfaceContainerLowColor;
-}
-QString DynamicScheme::surfaceContainerColor() const {
-  return impl->d.surfaceContainerColor;
-}
-QString DynamicScheme::surfaceContainerHighColor() const {
-  return impl->d.surfaceContainerHighColor;
-}
-QString DynamicScheme::surfaceContainerHighestColor() const {
-  return impl->d.surfaceContainerHighestColor;
-}
+QString DynamicScheme::outline() const { return impl->d.outline; }
+QString DynamicScheme::outlineVariant() const { return impl->d.outlineVariant; }
 
-QString DynamicScheme::onSurfaceColor() const { return impl->d.onSurfaceColor; }
-QString DynamicScheme::onSurfaceVariantColor() const {
-  return impl->d.onSurfaceVariantColor;
+QString DynamicScheme::inverseSurface() const { return impl->d.inverseSurface; }
+QString DynamicScheme::inverseOnSurface() const {
+  return impl->d.inverseOnSurface;
 }
-QString DynamicScheme::outlineColor() const { return impl->d.outlineColor; }
-QString DynamicScheme::outlineVariantColor() const {
-  return impl->d.outlineVariantColor;
-}
+QString DynamicScheme::inversePrimary() const { return impl->d.inversePrimary; }
 
-QString DynamicScheme::inverseSurfaceColor() const {
-  return impl->d.inverseSurfaceColor;
-}
-QString DynamicScheme::inverseOnSurfaceColor() const {
-  return impl->d.inverseOnSurfaceColor;
-}
-QString DynamicScheme::inversePrimaryColor() const {
-  return impl->d.inversePrimaryColor;
-}
-
-QString DynamicScheme::scrimColor() const { return impl->d.scrimColor; }
-QString DynamicScheme::shadowColor() const { return impl->d.shadowColor; }
+QString DynamicScheme::scrim() const { return impl->d.scrim; }
+QString DynamicScheme::shadow() const { return impl->d.shadow; }
