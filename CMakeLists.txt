@@ -11,7 +11,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(materialcolorutilities/MaterialColorUtilities.cmake)
 
-set(QT_VERSION_MAJOR 6)
+if(NOT QT_VERSION_MAJOR)
+  set(QT_VERSION_MAJOR 6)
+endif(NOT QT_VERSION_MAJOR)
 
 find_package(
   Qt${QT_VERSION_MAJOR}
