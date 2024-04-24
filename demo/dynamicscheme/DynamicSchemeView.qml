@@ -9,24 +9,7 @@ Rectangle {
     color: scheme.background
 
     property DynamicScheme scheme: DynamicScheme {
-        baseColor: colorDialog.color
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            if (colorDialog.visible) {
-                colorDialog.close()
-            } else {
-                colorDialog.open()
-            }
-        }
-    }
-
-    ColorDialog {
-        id: colorDialog
-        title: "Please choose a color"
-        color: "#DDE8D4"
+        baseColor: colorSlider.color
     }
 
     ColumnLayout {
@@ -954,6 +937,34 @@ Rectangle {
                     scheme.style = DynamicScheme.Rainbow
                 }
             }
+        }
+
+        Slider {
+            id: colorSlider
+
+            property color color
+
+            Layout.fillWidth: true
+            from: 0
+            to: 1
+
+            onValueChanged: {
+                color = "#" + parseInt(value * 0xFFFFFF).toString(16);
+            }
+
+            handle: Rectangle {
+                x: colorSlider.leftPadding + colorSlider.visualPosition * (colorSlider.availableWidth - width)
+                y: colorSlider.topPadding + colorSlider.availableHeight / 2 - height / 2
+                implicitWidth: 16
+                implicitHeight: 16
+                radius: 5
+                color: colorSlider.color
+            }
+
+            Component.onCompleted: {
+                value = 0.5
+            }
+                        
         }
     }
 
