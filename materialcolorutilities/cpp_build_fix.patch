@@ -1,0 +1,38 @@
+diff --git a/cpp/scheme/scheme_content.cc b/cpp/scheme/scheme_content.cc
+index 9802bf8..605c523 100644
+--- a/cpp/scheme/scheme_content.cc
++++ b/cpp/scheme/scheme_content.cc
+@@ -16,6 +16,8 @@
+ 
+ #include "cpp/scheme/scheme_content.h"
+ 
++#include <cmath>
++
+ #include "cpp/cam/hct.h"
+ #include "cpp/dislike/dislike.h"
+ #include "cpp/dynamiccolor/dynamic_scheme.h"
+diff --git a/cpp/scheme/scheme_fidelity.cc b/cpp/scheme/scheme_fidelity.cc
+index 65dae03..c12c487 100644
+--- a/cpp/scheme/scheme_fidelity.cc
++++ b/cpp/scheme/scheme_fidelity.cc
+@@ -16,6 +16,8 @@
+ 
+ #include "cpp/scheme/scheme_fidelity.h"
+ 
++#include <cmath>
++
+ #include "cpp/cam/hct.h"
+ #include "cpp/dislike/dislike.h"
+ #include "cpp/dynamiccolor/dynamic_scheme.h"
+diff --git a/cpp/temperature/temperature_cache.h b/cpp/temperature/temperature_cache.h
+index 17e7c17..492f6e5 100644
+--- a/cpp/temperature/temperature_cache.h
++++ b/cpp/temperature/temperature_cache.h
+@@ -18,6 +18,7 @@
+ #define CPP_TEMPERATURE_TEMPERATURE_CACHE_H_
+ 
+ #include <map>
++#include <optional>
+ #include <vector>
+ 
+ #include "cpp/cam/hct.h"
